@@ -1,0 +1,228 @@
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: '/'` to `controller: '/'`. (called from block in <top (required)> at /Users/pivotal/workspace/small/small-rails/config/routes.rb:2)
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: '/'` to `controller: '/'`. (called from block in <top (required)> at /Users/pivotal/workspace/small/small-rails/config/routes.rb:2)
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20150701174829)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/pivotal/workspace/small/small-rails/db/migrate/20150701174829_devise_create_users.rb:34)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150701174829"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddAccessTokenToUser (20150701220850)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "access_token" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150701220850"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddUsernameToUser (20150701220910)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "username" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150701220910"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddRoleToUser (20150701220920)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "role" varchar DEFAULT 'user'[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150701220920"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLessons (20150701223045)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150701223045"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-01 16:50:36 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/pivotal/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2015-07-01 16:50:56 -0700
+Processing by Rails::InfoController#properties as */*
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  Rendered /Users/pivotal/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.2.0/lib/rails/templates/rails/info/properties.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-01 17:01:24 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"user@example.com", "username"=>"user", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", ""]]
+Completed 422 Unprocessable Entity in 281ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-01 17:02:00 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"user@example.com", "username"=>"user", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", ""]]
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-01 17:02:20 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"user@example.com", "username"=>"user", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", ""]]
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-01 17:02:55 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"user@example.com", "username"=>"user", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", ""]]
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-01 17:03:20 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"user@example.com", "username"=>"user", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", ""]]
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'kelsi@heel.org' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "kelsi@heel.org"], ["username", "lambert_hills"], ["encrypted_password", "$2a$10$5gO.fgzyH0zTJ2ZIv5yOMe6BDINERrFoORDuqiGPL0gjPtYjKZ9kq"], ["created_at", "2015-07-02 00:07:18.865994"], ["updated_at", "2015-07-02 00:07:18.865994"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "1:k9DSKvyjdNL6jcyJk-i_"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'kelsi@heel.org' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "kelsi@heel.org"], ["username", "lambert_hills"], ["encrypted_password", "$2a$10$5gO.fgzyH0zTJ2ZIv5yOMe6BDINERrFoORDuqiGPL0gjPtYjKZ9kq"], ["created_at", "2015-07-02 00:07:18.865994"], ["updated_at", "2015-07-02 00:07:18.865994"], ["id", 1], ["access_token", "1:k9DSKvyjdNL6jcyJk-i_"], ["id", 1]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'dimitri@nikolaus.net' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "dimitri@nikolaus.net"], ["username", "larue.collier"], ["encrypted_password", "$2a$10$9IMpjCY7ZUjLNwgLAuF1g./TAA7.i8rV0rPPYidT99GRN3GzjgGWK"], ["created_at", "2015-07-02 00:07:18.940769"], ["updated_at", "2015-07-02 00:07:18.940769"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "2:Y5mgFH_EdCZ-abawBHTR"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'dimitri@nikolaus.net' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "dimitri@nikolaus.net"], ["username", "larue.collier"], ["encrypted_password", "$2a$10$9IMpjCY7ZUjLNwgLAuF1g./TAA7.i8rV0rPPYidT99GRN3GzjgGWK"], ["created_at", "2015-07-02 00:07:18.940769"], ["updated_at", "2015-07-02 00:07:18.940769"], ["id", 2], ["access_token", "2:Y5mgFH_EdCZ-abawBHTR"], ["id", 2]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'leonie_ko@gerlachkihn.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "leonie_ko@gerlachkihn.info"], ["username", "genevieve"], ["encrypted_password", "$2a$10$/bPlXCwZi9BxaFw8tDtE/.kTia/CwOEtw.RAiAVPstrtF1mLUfv5W"], ["created_at", "2015-07-02 00:07:19.010720"], ["updated_at", "2015-07-02 00:07:19.010720"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "3:WpBqgH_PrtTayVRba7TQ"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'leonie_ko@gerlachkihn.info' AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "leonie_ko@gerlachkihn.info"], ["username", "genevieve"], ["encrypted_password", "$2a$10$/bPlXCwZi9BxaFw8tDtE/.kTia/CwOEtw.RAiAVPstrtF1mLUfv5W"], ["created_at", "2015-07-02 00:07:19.010720"], ["updated_at", "2015-07-02 00:07:19.010720"], ["id", 3], ["access_token", "3:WpBqgH_PrtTayVRba7TQ"], ["id", 3]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'carlos@swift.net' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "carlos@swift.net"], ["username", "candido"], ["encrypted_password", "$2a$10$kVSw0u8p1raUyHwif868JeZhDaDgZ3wDmYQgGXnO9yrgS1Yszlmj2"], ["created_at", "2015-07-02 00:07:19.080578"], ["updated_at", "2015-07-02 00:07:19.080578"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "4:HyX_9jDQAzYb5PtBDUoR"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'carlos@swift.net' AND "users"."id" != 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "carlos@swift.net"], ["username", "candido"], ["encrypted_password", "$2a$10$kVSw0u8p1raUyHwif868JeZhDaDgZ3wDmYQgGXnO9yrgS1Yszlmj2"], ["created_at", "2015-07-02 00:07:19.080578"], ["updated_at", "2015-07-02 00:07:19.080578"], ["id", 4], ["access_token", "4:HyX_9jDQAzYb5PtBDUoR"], ["id", 4]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'aditya.wisoky@collins.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "aditya.wisoky@collins.org"], ["username", "enoch_brakus"], ["encrypted_password", "$2a$10$oQV6VdQs3AXbyXfjQHfHfuSQ9wwHfYZL9h12aiNuS/I/XLoM0X37u"], ["created_at", "2015-07-02 00:07:19.150497"], ["updated_at", "2015-07-02 00:07:19.150497"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "5:7zM2Fnny-Rvyg5Jy6JDB"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'aditya.wisoky@collins.org' AND "users"."id" != 5) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "aditya.wisoky@collins.org"], ["username", "enoch_brakus"], ["encrypted_password", "$2a$10$oQV6VdQs3AXbyXfjQHfHfuSQ9wwHfYZL9h12aiNuS/I/XLoM0X37u"], ["created_at", "2015-07-02 00:07:19.150497"], ["updated_at", "2015-07-02 00:07:19.150497"], ["id", 5], ["access_token", "5:7zM2Fnny-Rvyg5Jy6JDB"], ["id", 5]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jaqueline@batz.info' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "jaqueline@batz.info"], ["username", "imelda"], ["encrypted_password", "$2a$10$wYE4fSRp79pXLiKIscI/V.nrEc7Zi14DXbTnaQm6sU5J38FP3UUAm"], ["created_at", "2015-07-02 00:07:19.220263"], ["updated_at", "2015-07-02 00:07:19.220263"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "6:ZxEjjMf8_L7Y2QXkVxzW"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'jaqueline@batz.info' AND "users"."id" != 6) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "jaqueline@batz.info"], ["username", "imelda"], ["encrypted_password", "$2a$10$wYE4fSRp79pXLiKIscI/V.nrEc7Zi14DXbTnaQm6sU5J38FP3UUAm"], ["created_at", "2015-07-02 00:07:19.220263"], ["updated_at", "2015-07-02 00:07:19.220263"], ["id", 6], ["access_token", "6:ZxEjjMf8_L7Y2QXkVxzW"], ["id", 6]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaci@bahringertrantow.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "kaci@bahringertrantow.info"], ["username", "onie"], ["encrypted_password", "$2a$10$PYJ.HjeoZ5.cju3XRY/FB.g3Sk8lVN/2Dm6SvVErF8mwsinQWgjm6"], ["created_at", "2015-07-02 00:07:19.289803"], ["updated_at", "2015-07-02 00:07:19.289803"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "7:swsUsYUyuWB9zRQaGsMz"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'kaci@bahringertrantow.info' AND "users"."id" != 7) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "kaci@bahringertrantow.info"], ["username", "onie"], ["encrypted_password", "$2a$10$PYJ.HjeoZ5.cju3XRY/FB.g3Sk8lVN/2Dm6SvVErF8mwsinQWgjm6"], ["created_at", "2015-07-02 00:07:19.289803"], ["updated_at", "2015-07-02 00:07:19.289803"], ["id", 7], ["access_token", "7:swsUsYUyuWB9zRQaGsMz"], ["id", 7]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jarrod@gaylord.net' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "jarrod@gaylord.net"], ["username", "queenie"], ["encrypted_password", "$2a$10$fNV5f634Zhk96uhV5mB2BOhvKV.Nk7WPxSUDf85RcgqKqHSwIfF.e"], ["created_at", "2015-07-02 00:07:19.359685"], ["updated_at", "2015-07-02 00:07:19.359685"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "8:BkLw_sxwFF9PgFYSE8e2"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'jarrod@gaylord.net' AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "jarrod@gaylord.net"], ["username", "queenie"], ["encrypted_password", "$2a$10$fNV5f634Zhk96uhV5mB2BOhvKV.Nk7WPxSUDf85RcgqKqHSwIfF.e"], ["created_at", "2015-07-02 00:07:19.359685"], ["updated_at", "2015-07-02 00:07:19.359685"], ["id", 8], ["access_token", "8:BkLw_sxwFF9PgFYSE8e2"], ["id", 8]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carley.daugherty@schmeler.net' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "carley.daugherty@schmeler.net"], ["username", "jakayla"], ["encrypted_password", "$2a$10$yxZPjTg6TxHpsKYmP6O9Y.BaxcnQNSXL1lHASrE8Xyj7Jxz61G3Gm"], ["created_at", "2015-07-02 00:07:19.429803"], ["updated_at", "2015-07-02 00:07:19.429803"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "9:neXq5HcHBZFAAKhFqayY"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'carley.daugherty@schmeler.net' AND "users"."id" != 9) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "carley.daugherty@schmeler.net"], ["username", "jakayla"], ["encrypted_password", "$2a$10$yxZPjTg6TxHpsKYmP6O9Y.BaxcnQNSXL1lHASrE8Xyj7Jxz61G3Gm"], ["created_at", "2015-07-02 00:07:19.429803"], ["updated_at", "2015-07-02 00:07:19.429803"], ["id", 9], ["access_token", "9:neXq5HcHBZFAAKhFqayY"], ["id", 9]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'josiah.mann@hills.org' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "josiah.mann@hills.org"], ["username", "donato.spinka"], ["encrypted_password", "$2a$10$x2aMGgVtce4gSwpaNy/aWOjLFglI8wjRTr1UzXJI/2x1eN8gsGHcm"], ["created_at", "2015-07-02 00:07:19.499552"], ["updated_at", "2015-07-02 00:07:19.499552"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "10:rsJDHohH-Nm1Qyxtsg7j"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'josiah.mann@hills.org' AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "josiah.mann@hills.org"], ["username", "donato.spinka"], ["encrypted_password", "$2a$10$x2aMGgVtce4gSwpaNy/aWOjLFglI8wjRTr1UzXJI/2x1eN8gsGHcm"], ["created_at", "2015-07-02 00:07:19.499552"], ["updated_at", "2015-07-02 00:07:19.499552"], ["id", 10], ["access_token", "10:rsJDHohH-Nm1Qyxtsg7j"], ["id", 10]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["email", "admin@admin.com"], ["username", "admin"], ["encrypted_password", "$2a$10$rqqXIQCH0dpcXmhI.utRs.ykjXRLBxLOJ2s6lPOx9grHGCo9onEQa"], ["role", "admin"], ["created_at", "2015-07-02 00:07:19.570129"], ["updated_at", "2015-07-02 00:07:19.570129"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "11:dZWWfWRB62P1pZXL7HUx"]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'admin@admin.com' AND "users"."id" != 11) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "role" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "admin@admin.com"], ["username", "admin"], ["encrypted_password", "$2a$10$rqqXIQCH0dpcXmhI.utRs.ykjXRLBxLOJ2s6lPOx9grHGCo9onEQa"], ["role", "admin"], ["created_at", "2015-07-02 00:07:19.570129"], ["updated_at", "2015-07-02 00:07:19.570129"], ["id", 11], ["access_token", "11:dZWWfWRB62P1pZXL7HUx"], ["id", 11]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = ?  [["email", "admin@admin.com"]]
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701223045')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
