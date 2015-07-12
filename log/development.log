@@ -226,3 +226,1371 @@ Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
   [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
   [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
   [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-03 10:06:09 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-03 18:44:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"admin@admin.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@admin.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-07-04 01:44:35.639045"], ["current_sign_in_at", "2015-07-04 01:44:35.639045"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-07-04 01:44:35.640546"], ["id", 11]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 125ms (Views: 1.0ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-03 18:48:04 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"admin@admin.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@admin.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_sign_in_at", "2015-07-04 01:48:04.275170"], ["sign_in_count", 2], ["updated_at", "2015-07-04 01:48:04.276800"], ["id", 11]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 77ms (Views: 0.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:19:09 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (1.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 33ms (Views: 24.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:20:01 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:20:06 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-04 09:22:49 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"admin@admin.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin@admin.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-04 01:48:04.275170"], ["current_sign_in_at", "2015-07-04 16:22:49.563499"], ["sign_in_count", 3], ["updated_at", "2015-07-04 16:22:49.565450"], ["id", 11]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Completed 200 OK in 77ms (Views: 0.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:22:49 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:23:51 -0700
+Processing by V1::LessonsController#create as JSON
+  Parameters: {"lesson"=>{"title"=>"Coding Rails 101", "creator"=>"Odin", "link"=>"http://www.theodinproject.com/ruby-on-rails", "summary"=>"This is an interesting lesson."}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-07-04 16:22:49.563499"], ["current_sign_in_at", "2015-07-04 16:23:51.468710"], ["sign_in_count", 4], ["updated_at", "2015-07-04 16:23:51.469621"], ["id", 11]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "lessons" ("title", "summary", "link", "creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coding Rails 101"], ["summary", "This is an interesting lesson."], ["link", "http://www.theodinproject.com/ruby-on-rails"], ["creator", "Odin"], ["created_at", "2015-07-04 16:23:51.505143"], ["updated_at", "2015-07-04 16:23:51.505143"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Completed 200 OK in 49ms (Views: 1.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:23:51 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:25:02 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:25:03 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:25:08 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:25:27 -0700
+Processing by V1::LessonsController#create as JSON
+  Parameters: {"lesson"=>{"title"=>"Coding lesson 2", "creator"=>"Odin", "link"=>"http://www.theodinproject.com/ruby-on-rails", "summary"=>"Tkae a look"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-04 16:23:51.468710"], ["current_sign_in_at", "2015-07-04 16:25:27.024261"], ["sign_in_count", 5], ["updated_at", "2015-07-04 16:25:27.027250"], ["id", 11]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lessons" ("title", "summary", "link", "creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Coding lesson 2"], ["summary", "Tkae a look"], ["link", "http://www.theodinproject.com/ruby-on-rails"], ["creator", "Odin"], ["created_at", "2015-07-04 16:25:27.032550"], ["updated_at", "2015-07-04 16:25:27.032550"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:25:27 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:26:24 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:26:24 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:30:42 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:30:42 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:31:21 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:31:21 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:32:02 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:32:02 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:32:59 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:33:00 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.3ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[36mLesson Load (2.0ms)[0m  [1mSELECT "lessons".* FROM "lessons"[0m
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:37:34 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:37:34 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:39:38 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:39:38 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:39:54 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:40:25 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:40:26 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons/2" for 127.0.0.1 at 2015-07-04 09:40:29 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mLesson Load (0.1ms)[0m  SELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:40:32 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:41:12 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/2" for 127.0.0.1 at 2015-07-04 09:42:30 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:42:57 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/v1/users" for 127.0.0.1 at 2015-07-04 09:43:21 -0700
+Processing by V1::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"newbie@newster.com", "username"=>"noob", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'newbie@newster.com' LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "newbie@newster.com"], ["username", "noob"], ["encrypted_password", "$2a$10$Y0NQao9djK/ee1nVJlnASe1ayj0O3UNO/31HOftfhcIFycTqvUeVG"], ["created_at", "2015-07-04 16:43:22.108602"], ["updated_at", "2015-07-04 16:43:22.108602"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "12:pFqC5-g9YEFh2X_xVj_Q"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'newbie@newster.com' AND "users"."id" != 12) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "newbie@newster.com"], ["username", "noob"], ["encrypted_password", "$2a$10$Y0NQao9djK/ee1nVJlnASe1ayj0O3UNO/31HOftfhcIFycTqvUeVG"], ["created_at", "2015-07-04 16:43:22.108602"], ["updated_at", "2015-07-04 16:43:22.108602"], ["id", 12], ["access_token", "12:pFqC5-g9YEFh2X_xVj_Q"], ["id", 12]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 135ms (Views: 0.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:43:22 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-04 09:43:57 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"admin@admin.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin@admin.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-04 16:25:27.024261"], ["current_sign_in_at", "2015-07-04 16:43:57.689823"], ["sign_in_count", 6], ["updated_at", "2015-07-04 16:43:57.690838"], ["id", 11]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Completed 200 OK in 72ms (Views: 1.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:43:57 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:44:48 -0700
+Processing by V1::LessonsController#create as JSON
+  Parameters: {"lesson"=>{"title"=>"Coding wars tutorial", "creator"=>"Codewars", "link"=>"https://www.codewars.com/users/sign_in", "summary"=>"Practice makes perfect!"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-07-04 16:43:57.689823"], ["current_sign_in_at", "2015-07-04 16:44:48.236936"], ["sign_in_count", 7], ["updated_at", "2015-07-04 16:44:48.237749"], ["id", 11]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lessons" ("title", "summary", "link", "creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coding wars tutorial"], ["summary", "Practice makes perfect!"], ["link", "https://www.codewars.com/users/sign_in"], ["creator", "Codewars"], ["created_at", "2015-07-04 16:44:48.241132"], ["updated_at", "2015-07-04 16:44:48.241132"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:44:48 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/3" for 127.0.0.1 at 2015-07-04 09:44:54 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[35mLesson Load (0.1ms)[0m  SELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:48:15 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/3" for 127.0.0.1 at 2015-07-04 09:48:18 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[35mLesson Load (0.1ms)[0m  SELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:48:26 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 09:48:27 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:31:27 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.4ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 58ms (Views: 54.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:31:27 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/1" for 127.0.0.1 at 2015-07-04 16:31:35 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mLesson Load (0.1ms)[0m  SELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/1" for 127.0.0.1 at 2015-07-04 16:31:36 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/1" for 127.0.0.1 at 2015-07-04 16:31:36 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mLesson Load (0.1ms)[0m  SELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-04 16:32:04 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"newuser101@gmail.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "newuser101@gmail.com"]]
+Completed 422 Unprocessable Entity in 323ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-04 16:32:10 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"newuser101@gmail.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "newuser101@gmail.com"]]
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/v1/users" for 127.0.0.1 at 2015-07-04 16:32:32 -0700
+Processing by V1::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"newuser101@gmail.com", "username"=>"newuser101", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'newuser101@gmail.com' LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "newuser101@gmail.com"], ["username", "newuser101"], ["encrypted_password", "$2a$10$gxSlamc1GOse/FBZ3JRK5elJTkTiz0s9n8iA.neT3kQ1ykPHdgZfu"], ["created_at", "2015-07-04 23:32:33.071860"], ["updated_at", "2015-07-04 23:32:33.071860"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "13:pyESrvWQde6yBTWhcsE1"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'newuser101@gmail.com' AND "users"."id" != 13) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "newuser101@gmail.com"], ["username", "newuser101"], ["encrypted_password", "$2a$10$gxSlamc1GOse/FBZ3JRK5elJTkTiz0s9n8iA.neT3kQ1ykPHdgZfu"], ["created_at", "2015-07-04 23:32:33.071860"], ["updated_at", "2015-07-04 23:32:33.071860"], ["id", 13], ["access_token", "13:pyESrvWQde6yBTWhcsE1"], ["id", 13]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 93ms (Views: 1.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:32:33 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons/2" for 127.0.0.1 at 2015-07-04 16:32:39 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:32:57 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:32:58 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:32:58 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons/3" for 127.0.0.1 at 2015-07-04 16:33:01 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/3" for 127.0.0.1 at 2015-07-04 16:33:01 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[35mLesson Load (0.1ms)[0m  SELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-04 16:33:09 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"admin@admin.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin@admin.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-04 16:44:48.236936"], ["current_sign_in_at", "2015-07-04 23:33:09.731775"], ["sign_in_count", 8], ["updated_at", "2015-07-04 23:33:09.732736"], ["id", 11]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Completed 200 OK in 62ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:33:09 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:33:47 -0700
+Processing by V1::LessonsController#create as JSON
+  Parameters: {"lesson"=>{"title"=>"Coding 102", "creator"=>"Codeacademy", "link"=>"http://www.codecademy.com/learn", "summary"=>"Learn to code."}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-07-04 23:33:09.731775"], ["current_sign_in_at", "2015-07-04 23:33:47.416071"], ["sign_in_count", 9], ["updated_at", "2015-07-04 23:33:47.417136"], ["id", 11]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lessons" ("title", "summary", "link", "creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coding 102"], ["summary", "Learn to code."], ["link", "http://www.codecademy.com/learn"], ["creator", "Codeacademy"], ["created_at", "2015-07-04 23:33:47.421625"], ["updated_at", "2015-07-04 23:33:47.421625"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-04 16:33:47 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:28:46 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 57ms (Views: 53.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/v1/lessons/1" for 127.0.0.1 at 2015-07-11 11:28:55 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:29:09 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.5ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/v1/users" for 127.0.0.1 at 2015-07-11 11:29:35 -0700
+Processing by V1::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"newuser101@gmail.com", "username"=>"newuser101", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'newuser101@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 352ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/v1/users" for 127.0.0.1 at 2015-07-11 11:30:00 -0700
+Processing by V1::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"newuserA@gmail.com", "username"=>"newuserA", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'newusera@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "newusera@gmail.com"], ["username", "newuserA"], ["encrypted_password", "$2a$10$o3f9o9nG4r2EyG78PpxWgeedWxsvuUjyDgZl7YPYBDv3NlZFO/yMm"], ["created_at", "2015-07-11 18:30:00.065175"], ["updated_at", "2015-07-11 18:30:00.065175"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "14:YP-dmVYg7PzD7gps7FuL"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'newusera@gmail.com' AND "users"."id" != 14) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "newusera@gmail.com"], ["username", "newuserA"], ["encrypted_password", "$2a$10$o3f9o9nG4r2EyG78PpxWgeedWxsvuUjyDgZl7YPYBDv3NlZFO/yMm"], ["created_at", "2015-07-11 18:30:00.065175"], ["updated_at", "2015-07-11 18:30:00.065175"], ["id", 14], ["access_token", "14:YP-dmVYg7PzD7gps7FuL"], ["id", 14]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Completed 200 OK in 70ms (Views: 1.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:30:00 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-11 11:30:21 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"admin@admin.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@admin.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-07-04 23:33:47.416071"], ["current_sign_in_at", "2015-07-11 18:30:21.593236"], ["sign_in_count", 10], ["updated_at", "2015-07-11 18:30:21.594242"], ["id", 11]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 64ms (Views: 0.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:30:21 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:30:59 -0700
+Processing by V1::LessonsController#create as JSON
+  Parameters: {"lesson"=>{"title"=>"Udacity Lessons", "creator"=>"Udacity", "link"=>"https://www.udacity.com/", "summary"=>"Sooooo many things to learn at Udacity."}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-11 18:30:21.593236"], ["current_sign_in_at", "2015-07-11 18:30:59.686321"], ["sign_in_count", 11], ["updated_at", "2015-07-11 18:30:59.687024"], ["id", 11]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lessons" ("title", "summary", "link", "creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Udacity Lessons"], ["summary", "Sooooo many things to learn at Udacity."], ["link", "https://www.udacity.com/"], ["creator", "Udacity"], ["created_at", "2015-07-11 18:30:59.689578"], ["updated_at", "2015-07-11 18:30:59.689578"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:30:59 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-11 11:31:22 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"newuserA@gmail.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "newusera@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-11 18:31:22.751875"], ["current_sign_in_at", "2015-07-11 18:31:22.751875"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-07-11 18:31:22.752764"], ["id", 14]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 63ms (Views: 0.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:31:22 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.2ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:37:46 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.1ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 50ms (Views: 47.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/v1/login" for 127.0.0.1 at 2015-07-11 11:37:59 -0700
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"username"=>"admin@admin.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin@admin.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-11 18:37:59.907311"], ["current_sign_in_at", "2015-07-11 18:37:59.907311"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-07-11 18:37:59.908410"], ["id", 11]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 77ms (Views: 1.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:37:59 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/v1/lessons/5" for 127.0.0.1 at 2015-07-11 11:38:05 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[35mLesson Load (0.1ms)[0m  SELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1  [["id", 5]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Lesson with 'id'=5):
+  app/controllers/v1/lessons_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (30.6ms)
+
+
+Started POST "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:38:33 -0700
+Processing by V1::LessonsController#create as JSON
+  Parameters: {"lesson"=>{"title"=>"Coding 101", "creator"=>"Udacity", "link"=>"https://www.udacity.com/", "summary"=>"You can learn sooooo much"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2015-07-11 18:38:33.341371"], ["sign_in_count", 2], ["updated_at", "2015-07-11 18:38:33.342226"], ["id", 11]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lessons" ("title", "summary", "link", "creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Coding 101"], ["summary", "You can learn sooooo much"], ["link", "https://www.udacity.com/"], ["creator", "Udacity"], ["created_at", "2015-07-11 18:38:33.349363"], ["updated_at", "2015-07-11 18:38:33.349363"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/v1/lessons" for 127.0.0.1 at 2015-07-11 11:38:33 -0700
+Processing by V1::LessonsController#index as JSON
+  [1m[35mLesson Load (0.2ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/v1/lessons/1" for 127.0.0.1 at 2015-07-11 11:38:37 -0700
+Processing by V1::LessonsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mLesson Load (0.1ms)[0m  [1mSELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20150711191200)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150711191200"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191200')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701174829')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220850')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220910')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220920')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701223045')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191200')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701174829')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220850')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220910')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220920')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701223045')
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191200')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701174829')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220850')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220910')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220920')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701223045')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'craig@hudsonbeatty.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "craig@hudsonbeatty.com"], ["username", "lenna.tremblay"], ["encrypted_password", "$2a$10$kePVzYzuLftp9JU5UdkfX.JOEHHpV.9aDU1Tc1TnRjHerPawZvKU6"], ["created_at", "2015-07-12 18:21:03.109261"], ["updated_at", "2015-07-12 18:21:03.109261"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "1:y42Kq3RsQavLpe6fe_WE"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'craig@hudsonbeatty.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "craig@hudsonbeatty.com"], ["username", "lenna.tremblay"], ["encrypted_password", "$2a$10$kePVzYzuLftp9JU5UdkfX.JOEHHpV.9aDU1Tc1TnRjHerPawZvKU6"], ["created_at", "2015-07-12 18:21:03.109261"], ["updated_at", "2015-07-12 18:21:03.109261"], ["id", 1], ["access_token", "1:y42Kq3RsQavLpe6fe_WE"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'karen@rice.name' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "karen@rice.name"], ["username", "naomi.paucek"], ["encrypted_password", "$2a$10$iinlN6O3NuO84qU4dYRrzOFHdL22UmIvI4gm7bVhopa1dmKyudXK."], ["created_at", "2015-07-12 18:21:03.177321"], ["updated_at", "2015-07-12 18:21:03.177321"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "2:39HNQYEtxqaCFySRBLpy"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'karen@rice.name' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "karen@rice.name"], ["username", "naomi.paucek"], ["encrypted_password", "$2a$10$iinlN6O3NuO84qU4dYRrzOFHdL22UmIvI4gm7bVhopa1dmKyudXK."], ["created_at", "2015-07-12 18:21:03.177321"], ["updated_at", "2015-07-12 18:21:03.177321"], ["id", 2], ["access_token", "2:39HNQYEtxqaCFySRBLpy"], ["id", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'dale@sawayn.info' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "dale@sawayn.info"], ["username", "kayla"], ["encrypted_password", "$2a$10$8DnxjnH/3HKI.8YGCtZBfuDVp72B93kXi2NJrcI/BOpPiVNlhagQy"], ["created_at", "2015-07-12 18:21:03.238704"], ["updated_at", "2015-07-12 18:21:03.238704"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "3:9xzsNdtg4cuxXA9CMs1L"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'dale@sawayn.info' AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "dale@sawayn.info"], ["username", "kayla"], ["encrypted_password", "$2a$10$8DnxjnH/3HKI.8YGCtZBfuDVp72B93kXi2NJrcI/BOpPiVNlhagQy"], ["created_at", "2015-07-12 18:21:03.238704"], ["updated_at", "2015-07-12 18:21:03.238704"], ["id", 3], ["access_token", "3:9xzsNdtg4cuxXA9CMs1L"], ["id", 3]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'dangelo@moriette.name' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "dangelo@moriette.name"], ["username", "herminio.koepp"], ["encrypted_password", "$2a$10$2M2Dm6KQumki5uh5a8348eR7cg6aEj1O6mfXzzl6AJDnfTaQSabPm"], ["created_at", "2015-07-12 18:21:03.303579"], ["updated_at", "2015-07-12 18:21:03.303579"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "4:KKzC7sPBsyS1vbrgYzF2"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'dangelo@moriette.name' AND "users"."id" != 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "dangelo@moriette.name"], ["username", "herminio.koepp"], ["encrypted_password", "$2a$10$2M2Dm6KQumki5uh5a8348eR7cg6aEj1O6mfXzzl6AJDnfTaQSabPm"], ["created_at", "2015-07-12 18:21:03.303579"], ["updated_at", "2015-07-12 18:21:03.303579"], ["id", 4], ["access_token", "4:KKzC7sPBsyS1vbrgYzF2"], ["id", 4]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'alexandre_kreiger@kub.biz' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "alexandre_kreiger@kub.biz"], ["username", "mabel"], ["encrypted_password", "$2a$10$YbD1UPlqPW7KeLru5ODhDOR3vcqnuzIc7crdU2l5dc4KNyHOYSh.G"], ["created_at", "2015-07-12 18:21:03.366149"], ["updated_at", "2015-07-12 18:21:03.366149"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "5:JmhU_j7STKAv6XxRFXy_"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'alexandre_kreiger@kub.biz' AND "users"."id" != 5) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "alexandre_kreiger@kub.biz"], ["username", "mabel"], ["encrypted_password", "$2a$10$YbD1UPlqPW7KeLru5ODhDOR3vcqnuzIc7crdU2l5dc4KNyHOYSh.G"], ["created_at", "2015-07-12 18:21:03.366149"], ["updated_at", "2015-07-12 18:21:03.366149"], ["id", 5], ["access_token", "5:JmhU_j7STKAv6XxRFXy_"], ["id", 5]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'emelia_hahn@durgan.org' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "emelia_hahn@durgan.org"], ["username", "felicita"], ["encrypted_password", "$2a$10$ciFwidbJeCGqLqxav3YLXOMhqNWbDbOgewo4HsiebMSP2NOmB.zJ."], ["created_at", "2015-07-12 18:21:03.430138"], ["updated_at", "2015-07-12 18:21:03.430138"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "6:_V4eZjMS-3D9aohm_5sU"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'emelia_hahn@durgan.org' AND "users"."id" != 6) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "emelia_hahn@durgan.org"], ["username", "felicita"], ["encrypted_password", "$2a$10$ciFwidbJeCGqLqxav3YLXOMhqNWbDbOgewo4HsiebMSP2NOmB.zJ."], ["created_at", "2015-07-12 18:21:03.430138"], ["updated_at", "2015-07-12 18:21:03.430138"], ["id", 6], ["access_token", "6:_V4eZjMS-3D9aohm_5sU"], ["id", 6]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baby.gislason@mills.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "baby.gislason@mills.info"], ["username", "darrel"], ["encrypted_password", "$2a$10$pp4KhgU0LqEw78liMPYctuDfwsdIg7P.S3T8YWtqnQNwT.C.JMOey"], ["created_at", "2015-07-12 18:21:03.493078"], ["updated_at", "2015-07-12 18:21:03.493078"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "7:KsQJpZwQB_ZLDSQB4ArC"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'baby.gislason@mills.info' AND "users"."id" != 7) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "baby.gislason@mills.info"], ["username", "darrel"], ["encrypted_password", "$2a$10$pp4KhgU0LqEw78liMPYctuDfwsdIg7P.S3T8YWtqnQNwT.C.JMOey"], ["created_at", "2015-07-12 18:21:03.493078"], ["updated_at", "2015-07-12 18:21:03.493078"], ["id", 7], ["access_token", "7:KsQJpZwQB_ZLDSQB4ArC"], ["id", 7]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'delphine@mayer.info' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "delphine@mayer.info"], ["username", "kylie.gutkowski"], ["encrypted_password", "$2a$10$L1s1B6OcjgXSmk5t9wwohevO3f/hhYPwGWTLQmhsUZAZwcbVNuanK"], ["created_at", "2015-07-12 18:21:03.560576"], ["updated_at", "2015-07-12 18:21:03.560576"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "8:-QDFCPWBCFpCWt89bxcA"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'delphine@mayer.info' AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "delphine@mayer.info"], ["username", "kylie.gutkowski"], ["encrypted_password", "$2a$10$L1s1B6OcjgXSmk5t9wwohevO3f/hhYPwGWTLQmhsUZAZwcbVNuanK"], ["created_at", "2015-07-12 18:21:03.560576"], ["updated_at", "2015-07-12 18:21:03.560576"], ["id", 8], ["access_token", "8:-QDFCPWBCFpCWt89bxcA"], ["id", 8]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'retta@skiles.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "retta@skiles.name"], ["username", "melia_daniel"], ["encrypted_password", "$2a$10$G08ihS7d7rg/Rzuz/r.cCuMw.3b5LeX09P2Xwf/i3R/jxs9ChNfv2"], ["created_at", "2015-07-12 18:21:03.626011"], ["updated_at", "2015-07-12 18:21:03.626011"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "9:BeBjSzUo7UDGbvXYHzxh"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'retta@skiles.name' AND "users"."id" != 9) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "retta@skiles.name"], ["username", "melia_daniel"], ["encrypted_password", "$2a$10$G08ihS7d7rg/Rzuz/r.cCuMw.3b5LeX09P2Xwf/i3R/jxs9ChNfv2"], ["created_at", "2015-07-12 18:21:03.626011"], ["updated_at", "2015-07-12 18:21:03.626011"], ["id", 9], ["access_token", "9:BeBjSzUo7UDGbvXYHzxh"], ["id", 9]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'ru.nicolas@dach.net' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "ru.nicolas@dach.net"], ["username", "kira"], ["encrypted_password", "$2a$10$nm6jKotolUG1AEgiMbhnvOu5SeRUZcGvj2qc0vVLN4ghw44HuAtsG"], ["created_at", "2015-07-12 18:21:03.688490"], ["updated_at", "2015-07-12 18:21:03.688490"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "10:7RbB66cbdAEtzztkHzzz"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'ru.nicolas@dach.net' AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "ru.nicolas@dach.net"], ["username", "kira"], ["encrypted_password", "$2a$10$nm6jKotolUG1AEgiMbhnvOu5SeRUZcGvj2qc0vVLN4ghw44HuAtsG"], ["created_at", "2015-07-12 18:21:03.688490"], ["updated_at", "2015-07-12 18:21:03.688490"], ["id", 10], ["access_token", "10:7RbB66cbdAEtzztkHzzz"], ["id", 10]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["email", "admin@admin.com"], ["username", "admin"], ["encrypted_password", "$2a$10$2yotfv6MT5/h5E3MLmr9Fe3mROfoSjKPtdbnVBVgTj5h/xtRPb6sy"], ["role", "admin"], ["created_at", "2015-07-12 18:21:03.749704"], ["updated_at", "2015-07-12 18:21:03.749704"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "11:uo1Fx3b47L4HL5T-2orS"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'admin@admin.com' AND "users"."id" != 11) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "role" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "admin@admin.com"], ["username", "admin"], ["encrypted_password", "$2a$10$2yotfv6MT5/h5E3MLmr9Fe3mROfoSjKPtdbnVBVgTj5h/xtRPb6sy"], ["role", "admin"], ["created_at", "2015-07-12 18:21:03.749704"], ["updated_at", "2015-07-12 18:21:03.749704"], ["id", 11], ["access_token", "11:uo1Fx3b47L4HL5T-2orS"], ["id", 11]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE "lessons"[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE "lessons"[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191200')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701174829')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220850')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220910')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220920')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701223045')
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191200')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701174829')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220850')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220910')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220920')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701223045')
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20150712204507)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "question_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_comments_on_question_id" ON "comments" ("question_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150712204507"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "question_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_comments_on_question_id" ON "comments" ("question_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150712204507')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "question_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_comments_on_question_id" ON "comments" ("question_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150712204507')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')

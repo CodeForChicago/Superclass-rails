@@ -13,6 +13,30 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 #Resque.inline = true
 
+
+module ControllerHelpers
+  def test_sign_in(u = true)
+    if !u
+      allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, {:scope => :user})
+      allow(controller).to receive(:current_user).and_return(nil)
+    else
+      @user = create(:user)
+      sign_in :user, @user
+      allow(request.env['warden']).to receive(:authenticate!).and_return(@user)
+      allow(controller).to receive(:current_user).and_return(@user)
+      return @user
+    end
+  end
+
+  def test_authorize_session
+    test_sign_in
+    request.headers['Authorization'] = @user.access_token
+  end
+
+
+end
+
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
@@ -41,4 +65,5 @@ RSpec.configure do |config|
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
   config.include Devise::TestHelpers, type: :controller
+  config.include ControllerHelpers, :type => :controller #For the above sign in
 end

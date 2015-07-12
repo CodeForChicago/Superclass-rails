@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
 
-  private
+  #private
 
   def update_access_token!
     self.access_token = generate_access_token

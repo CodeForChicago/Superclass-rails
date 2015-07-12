@@ -29,7 +29,7 @@ module V1
     private
 
     def lesson_params
-        params.require(:lesson).permit(:title, :summary, :link, :creator)
+      params.require(:lesson).permit(:title, :summary, :link, :creator)
     end
 
 
