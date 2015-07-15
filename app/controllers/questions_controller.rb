@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.order(created_at: :desc).all
     render json: @questions, each_serializer: QuestionsSerializer, root: nil
   end
 
