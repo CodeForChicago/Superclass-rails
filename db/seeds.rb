@@ -10,7 +10,14 @@
 require 'faker'
 
 10.times do
-  User.create(email: Faker::Internet.email, username: Faker::Internet.user_name, password: 'password')
+  Lesson.create(summary: Faker::Lorem.paragraph, title: Faker::Name.title, creator: "CFC", link: "codeacademy.com")
+  u = User.create(email: Faker::Internet.email, username: Faker::Internet.user_name, password: 'password')
+  q = Question.create(user: u, body: Faker::Lorem.paragraph, title: Faker::Name.title)
+
+  Comment.create(body: Faker::Lorem.paragraph, user: u, question: q )
 end
 
 User.create(email: "admin@admin.com", username: 'admin', password: 'password', role: 'admin')
+
+
+
