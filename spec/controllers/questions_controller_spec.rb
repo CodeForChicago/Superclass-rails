@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe QuestionsController do
+	render_views
 	describe 'GET index' do
 		it 'returns http success' do
 			get 'index'
@@ -11,7 +12,8 @@ describe QuestionsController do
 			question1 = create(:question)
 			question2 = create(:question)
 			get :index
-			expect(assigns[:questions]).to match_array([question1, question2])
+			require 'pry'; binding.pry
+			expect(response.body).to include({question1, question2}.to_json)
 			
 		end
 	end
@@ -22,7 +24,7 @@ describe QuestionsController do
 			question_id = question1.id
 			
 			get :show, id: question_id
-			
+			puts question1.to_json
 			expect(assigns[:question]).to match(question1)
 		end
 		
@@ -34,10 +36,24 @@ describe QuestionsController do
 			comment2 = create(:comment, question: question1)
 			
 			get :show, id: question_id
-			
+			puts assigns[:question].comments.inspect
 			expect(assigns[:question].comments).to match_array([comment1, comment2])
 		end
 		
+		it 'returns a comment with a username, given a parameter' do
+			user1 = create(:user)
+			question1 = create(:question, user: user1)
+			question_id = question1
+			
+			comment1 = create(:comment, question: question1)
+			user_name = user1.username
+			get :show, id: question_id
+			require 'pry', binding.pry
+			comment = JSON.parse(assigns[:question].comments.first.to_json)
+
+			expect(comment.user).to match(user_name)
+		end
+
 	end
 	
 	describe 'POST create' do
