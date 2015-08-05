@@ -48,10 +48,6 @@ describe QuestionsController do
 			comment1 = create(:comment, question: question1)
 			user_name = user1.username
 			get :show, id: question_id
-<<<<<<< HEAD
-=======
-			require 'pry', binding.pry
->>>>>>> f8c6ad9aa1e79f2d3a689a2fffc550192625daaa
 			comment = JSON.parse(assigns[:question].comments.first.to_json)
 
 			expect(comment.user).to match(user_name)
