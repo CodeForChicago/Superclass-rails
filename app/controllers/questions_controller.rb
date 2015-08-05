@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
   private
 
     def set_question
-      @question = Question.includes(:comments).find(params[:id])
+      @question = Question.find(params[:id])
     end
 
     def question_params
