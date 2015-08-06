@@ -16,7 +16,7 @@ require 'faker'
 
   Comment.create(body: Faker::Lorem.paragraph, user: u, question: q )
 end
-
+User.create(email: "user@user.com", username: 'user', password: 'password')
 User.create(email: "admin@admin.com", username: 'admin', password: 'password', role: 'admin')
 
 
