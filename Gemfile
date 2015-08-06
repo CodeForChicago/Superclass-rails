@@ -59,6 +59,7 @@ gem 'sqlite3'
 gem 'rack-cors',            require: 'rack/cors'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'thin'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 group :test, :development do
   gem 'pry'
   gem 'faker'

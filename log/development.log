@@ -2837,3 +2837,250 @@ ActionController::RoutingError (No route matches [GET] "/browser-sync/socket.io"
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (19.8ms)
+  [1m[36m (14.9ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "question_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (20.0ms)[0m  [1mCREATE  INDEX "index_comments_on_question_id" ON "comments" ("question_id")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+
+  [1m[36m (13.0ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (11.0ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (11.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (13.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (13.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (11.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (12.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (11.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150712204507')
+  [1m[36m (12.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (12.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (25.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (12.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (13.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36m (15.0ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "question_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (13.0ms)[0m  [1mCREATE  INDEX "index_comments_on_question_id" ON "comments" ("question_id")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_question_id' AND type='index'
+
+  [1m[36m (11.0ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (12.0ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "link" varchar, "creator" varchar, "summary" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (14.0ms)[0m  CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime, "access_token" varchar, "username" varchar, "role" varchar DEFAULT 'user') [0m
+  [1m[35m (13.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (12.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (14.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (11.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150712204507')
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701174829')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220850')
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701220910')[0m
+  [1m[35m (12.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150701220920')
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150701223045')[0m
+  [1m[35m (12.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191200')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Atque aut et quo maiores quia. Quo et dolores suscipit. Tenetur animi distinctio."], ["title", "Human Solutions Administrator"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:34.953695"], ["updated_at", "2015-08-06 02:36:34.953695"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'arnold_adams@kunze.com' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "arnold_adams@kunze.com"], ["username", "jaylan_sanford"], ["encrypted_password", "$2a$10$nxcJpIppeb.kyfqgEFJTEOo/htQF1qr/GB/WrOICfei8Fzkv5Dq56"], ["created_at", "2015-08-06 02:36:35.062773"], ["updated_at", "2015-08-06 02:36:35.062773"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "1:5kpCWDJdBnzK3jR8fbx3"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'arnold_adams@kunze.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "arnold_adams@kunze.com"], ["username", "jaylan_sanford"], ["encrypted_password", "$2a$10$nxcJpIppeb.kyfqgEFJTEOo/htQF1qr/GB/WrOICfei8Fzkv5Dq56"], ["created_at", "2015-08-06 02:36:35.062773"], ["updated_at", "2015-08-06 02:36:35.062773"], ["id", 1], ["access_token", "1:5kpCWDJdBnzK3jR8fbx3"], ["id", 1]]
+  [1m[36m (17.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["body", "Deserunt aliquid et ex dolorum in. Sint ut et atque voluptatem vel nam. Voluptatibus architecto libero facere illum est. Id quos dolorem atque vero tempora."], ["title", "Chief Markets Assistant"], ["created_at", "2015-08-06 02:36:35.122815"], ["updated_at", "2015-08-06 02:36:35.122815"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Adipisci dignissimos quae consequatur molestiae reprehenderit. Deleniti porro ea mollitia corporis cum totam. Accusamus vel eum. Iure voluptate dolor. Non molestias unde laudantium et."], ["user_id", 1], ["question_id", 1], ["created_at", "2015-08-06 02:36:35.144831"], ["updated_at", "2015-08-06 02:36:35.144831"]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Architecto aut ipsa nam velit illum nostrum voluptatem. Quis blanditiis quo recusandae libero ut itaque. Qui vitae nemo ut quam fuga. Iusto natus et architecto quia aut. Et veniam possimus."], ["title", "Chief Metrics Supervisor"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:35.159842"], ["updated_at", "2015-08-06 02:36:35.159842"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'sabryna_kunze@shields.org' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "sabryna_kunze@shields.org"], ["username", "muriel"], ["encrypted_password", "$2a$10$SBFcoG8fowUBrAg.bTHOXewHgoJI.NGTQOIhWlzvDT2Dxvz3Qq88y"], ["created_at", "2015-08-06 02:36:35.243901"], ["updated_at", "2015-08-06 02:36:35.243901"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "2:HCFTj3ZVysVsDgGGzBfu"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'sabryna_kunze@shields.org' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "sabryna_kunze@shields.org"], ["username", "muriel"], ["encrypted_password", "$2a$10$SBFcoG8fowUBrAg.bTHOXewHgoJI.NGTQOIhWlzvDT2Dxvz3Qq88y"], ["created_at", "2015-08-06 02:36:35.243901"], ["updated_at", "2015-08-06 02:36:35.243901"], ["id", 2], ["access_token", "2:HCFTj3ZVysVsDgGGzBfu"], ["id", 2]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["body", "Perferendis iure et corrupti reprehenderit quas quo excepturi. Sapiente soluta non ut id fugit quod. Quasi possimus distinctio quod."], ["title", "National Intranet Associate"], ["created_at", "2015-08-06 02:36:35.263915"], ["updated_at", "2015-08-06 02:36:35.263915"]]
+  [1m[35m (13.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Nulla recusandae qui eum nihil id. Velit sed et alias non repellendus ab error. Autem sit aspernatur dolores vel perferendis quas. Aut reprehenderit quae et. Ut sed qui libero dolores."], ["user_id", 2], ["question_id", 2], ["created_at", "2015-08-06 02:36:35.280927"], ["updated_at", "2015-08-06 02:36:35.280927"]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Omnis occaecati alias ratione. Laudantium qui in odit explicabo reiciendis iste. Quibusdam voluptas dicta exercitationem asperiores minima iusto velit."], ["title", "Future Solutions Architect"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:35.294937"], ["updated_at", "2015-08-06 02:36:35.294937"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jon@stiedemannkoch.org' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "jon@stiedemannkoch.org"], ["username", "ruell_watsica"], ["encrypted_password", "$2a$10$M3xv/ml973LH8dnobc51oeamfJXj8dCBuqEDKrUGAmaDpVTPKUcVa"], ["created_at", "2015-08-06 02:36:35.390004"], ["updated_at", "2015-08-06 02:36:35.390004"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "3:wg9x5_LT4HS7NBLnxFoN"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'jon@stiedemannkoch.org' AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "jon@stiedemannkoch.org"], ["username", "ruell_watsica"], ["encrypted_password", "$2a$10$M3xv/ml973LH8dnobc51oeamfJXj8dCBuqEDKrUGAmaDpVTPKUcVa"], ["created_at", "2015-08-06 02:36:35.390004"], ["updated_at", "2015-08-06 02:36:35.390004"], ["id", 3], ["access_token", "3:wg9x5_LT4HS7NBLnxFoN"], ["id", 3]]
+  [1m[36m (17.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["body", "Adipisci et iste ea aut voluptatem optio numquam. Repudiandae aspernatur commodi non id id quo. Eius quod consequatur corrupti tempore."], ["title", "Chief Data Director"], ["created_at", "2015-08-06 02:36:35.419027"], ["updated_at", "2015-08-06 02:36:35.419027"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Perferendis suscipit veniam delectus omnis. Ut aliquid tempora. Iste molestiae dolore ducimus et. Harum natus necessitatibus quo est cupiditate similique et. Veniam ea ut repudiandae voluptas."], ["user_id", 3], ["question_id", 3], ["created_at", "2015-08-06 02:36:35.433038"], ["updated_at", "2015-08-06 02:36:35.433038"]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Et quibusdam sunt. Ipsa ab molestiae mollitia alias. Placeat mollitia maiores."], ["title", "Customer Response Designer"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:35.448046"], ["updated_at", "2015-08-06 02:36:35.448046"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'clotilde@renner.com' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "clotilde@renner.com"], ["username", "dayne_wolf"], ["encrypted_password", "$2a$10$Auy6UD7TdanrWoSuhlv5POUNbtuHuegmJJZOxSrm78bjE/OX9y9nu"], ["created_at", "2015-08-06 02:36:35.535107"], ["updated_at", "2015-08-06 02:36:35.535107"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "4:Nxsyo5NHzuSnyR-goHhV"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'clotilde@renner.com' AND "users"."id" != 4) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "clotilde@renner.com"], ["username", "dayne_wolf"], ["encrypted_password", "$2a$10$Auy6UD7TdanrWoSuhlv5POUNbtuHuegmJJZOxSrm78bjE/OX9y9nu"], ["created_at", "2015-08-06 02:36:35.535107"], ["updated_at", "2015-08-06 02:36:35.535107"], ["id", 4], ["access_token", "4:Nxsyo5NHzuSnyR-goHhV"], ["id", 4]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["body", "Et laboriosam aut. Harum quia aliquid quaerat laborum. Nulla corporis maiores ut cupiditate voluptatem velit molestiae. Odio dolorem tenetur dolorum iste eos dolores."], ["title", "National Web Facilitator"], ["created_at", "2015-08-06 02:36:35.554121"], ["updated_at", "2015-08-06 02:36:35.554121"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Ex dolor voluptatem animi accusantium. Blanditiis modi quia. Qui est ad alias quia. Ut itaque beatae non quis cupiditate atque molestias. Sint enim expedita minima."], ["user_id", 4], ["question_id", 4], ["created_at", "2015-08-06 02:36:35.569131"], ["updated_at", "2015-08-06 02:36:35.569131"]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Libero nulla et dolores. Dicta voluptatem et mollitia laudantium debitis nostrum. Et accusantium velit voluptatem aut facere."], ["title", "Corporate Assurance Facilitator"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:35.583143"], ["updated_at", "2015-08-06 02:36:35.583143"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'merle@hamillblick.net' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "merle@hamillblick.net"], ["username", "kaycee.bednar"], ["encrypted_password", "$2a$10$qRLn7t8dZsOk30NXZVuH/eraIgXkcZaq0ZWoKK5OZv/jKNLJTc/iO"], ["created_at", "2015-08-06 02:36:35.667200"], ["updated_at", "2015-08-06 02:36:35.667200"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "5:NUio9ezxu7nGKL-_HUzw"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'merle@hamillblick.net' AND "users"."id" != 5) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "merle@hamillblick.net"], ["username", "kaycee.bednar"], ["encrypted_password", "$2a$10$qRLn7t8dZsOk30NXZVuH/eraIgXkcZaq0ZWoKK5OZv/jKNLJTc/iO"], ["created_at", "2015-08-06 02:36:35.667200"], ["updated_at", "2015-08-06 02:36:35.667200"], ["id", 5], ["access_token", "5:NUio9ezxu7nGKL-_HUzw"], ["id", 5]]
+  [1m[36m (26.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 5], ["body", "Dicta quis nostrum sed. Et autem quam voluptatum. Sint vero distinctio. Iusto et reprehenderit sit dolores laudantium ex excepturi."], ["title", "Global Data Orchestrator"], ["created_at", "2015-08-06 02:36:35.700226"], ["updated_at", "2015-08-06 02:36:35.700226"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Laudantium totam blanditiis sit sunt architecto ut. Ratione nulla numquam consectetur. Aperiam rerum dolorum totam in illum fugit. Laudantium deleniti quibusdam. Laborum magni incidunt exercitationem excepturi consequatur doloribus."], ["user_id", 5], ["question_id", 5], ["created_at", "2015-08-06 02:36:35.716238"], ["updated_at", "2015-08-06 02:36:35.716238"]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Sed ducimus nostrum dolore illo. Dolores aut aut tempore sed dolor. Consequuntur quia fugit voluptas libero quasi dolor aspernatur. Doloribus quo id. Beatae eum debitis amet omnis nihil ut."], ["title", "Direct Integration Specialist"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:35.731246"], ["updated_at", "2015-08-06 02:36:35.731246"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'orlo@bruen.org' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "orlo@bruen.org"], ["username", "wilber"], ["encrypted_password", "$2a$10$dW4.AFULte3uzI5pFsyRw.7wuwwflDqIlzIxj6O50DMDt/D7DVRC."], ["created_at", "2015-08-06 02:36:35.816306"], ["updated_at", "2015-08-06 02:36:35.816306"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "6:AxyQxUk1BhJUVr5LhAa6"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'orlo@bruen.org' AND "users"."id" != 6) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "orlo@bruen.org"], ["username", "wilber"], ["encrypted_password", "$2a$10$dW4.AFULte3uzI5pFsyRw.7wuwwflDqIlzIxj6O50DMDt/D7DVRC."], ["created_at", "2015-08-06 02:36:35.816306"], ["updated_at", "2015-08-06 02:36:35.816306"], ["id", 6], ["access_token", "6:AxyQxUk1BhJUVr5LhAa6"], ["id", 6]]
+  [1m[36m (16.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 6], ["body", "Itaque alias placeat consequatur cum rem aut et. Ex quo voluptas facilis molestiae non placeat. Velit odio nihil at. Et et ut ab. Sequi rerum similique excepturi quibusdam quos rem."], ["title", "National Marketing Agent"], ["created_at", "2015-08-06 02:36:35.840323"], ["updated_at", "2015-08-06 02:36:35.840323"]]
+  [1m[35m (14.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Nesciunt nostrum aliquam delectus molestias animi eum deleniti. Deserunt omnis incidunt. Quod architecto aut. Sint eveniet rerum et quaerat voluptas."], ["user_id", 6], ["question_id", 6], ["created_at", "2015-08-06 02:36:35.857335"], ["updated_at", "2015-08-06 02:36:35.857335"]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Eius est tenetur veniam vitae neque consectetur aliquam. Aut ullam veritatis deserunt inventore qui quos cumque. Molestiae enim voluptates beatae tenetur quidem porro voluptatem. Id sint ad. Ipsam accusamus optio officiis."], ["title", "Internal Infrastructure Specialist"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:35.872345"], ["updated_at", "2015-08-06 02:36:35.872345"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quentin.cronin@collins.biz' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "quentin.cronin@collins.biz"], ["username", "name"], ["encrypted_password", "$2a$10$zmKZPFhlKbv1ROhi5dLuuuxPqK.SZtsrdogRGYqetkkqzVCb64H7."], ["created_at", "2015-08-06 02:36:35.958406"], ["updated_at", "2015-08-06 02:36:35.958406"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "7:JsgXXJNQ_n1JHrMTLyLy"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'quentin.cronin@collins.biz' AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "quentin.cronin@collins.biz"], ["username", "name"], ["encrypted_password", "$2a$10$zmKZPFhlKbv1ROhi5dLuuuxPqK.SZtsrdogRGYqetkkqzVCb64H7."], ["created_at", "2015-08-06 02:36:35.958406"], ["updated_at", "2015-08-06 02:36:35.958406"], ["id", 7], ["access_token", "7:JsgXXJNQ_n1JHrMTLyLy"], ["id", 7]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 7], ["body", "Iste voluptatibus nisi numquam. Facilis et ex et quia explicabo labore. Est molestiae porro magni. Iste iure aut quia consectetur dolores ullam doloribus."], ["title", "Principal Directives Designer"], ["created_at", "2015-08-06 02:36:35.980422"], ["updated_at", "2015-08-06 02:36:35.980422"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Blanditiis rerum quaerat neque eaque. Velit esse aspernatur incidunt. Corrupti assumenda et praesentium debitis. Ea qui sit quae vel quos quia."], ["user_id", 7], ["question_id", 7], ["created_at", "2015-08-06 02:36:35.995432"], ["updated_at", "2015-08-06 02:36:35.995432"]]
+  [1m[36m (14.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Beatae nesciunt delectus reprehenderit commodi perspiciatis. Provident aut velit aut est velit nihil. Explicabo id ab. Et id ut sunt ipsa."], ["title", "Senior Security Manager"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:36.012446"], ["updated_at", "2015-08-06 02:36:36.012446"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'seamus@kilback.name' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "seamus@kilback.name"], ["username", "kareem.dietrich"], ["encrypted_password", "$2a$10$kJO1eqCgK9epwq8yK4Jn6.tT07xuPTtO0bxSAM6ILyRvd4wj2msDy"], ["created_at", "2015-08-06 02:36:36.101509"], ["updated_at", "2015-08-06 02:36:36.101509"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "8:cPwxxoiyYZsVGh3_sunU"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'seamus@kilback.name' AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "seamus@kilback.name"], ["username", "kareem.dietrich"], ["encrypted_password", "$2a$10$kJO1eqCgK9epwq8yK4Jn6.tT07xuPTtO0bxSAM6ILyRvd4wj2msDy"], ["created_at", "2015-08-06 02:36:36.101509"], ["updated_at", "2015-08-06 02:36:36.101509"], ["id", 8], ["access_token", "8:cPwxxoiyYZsVGh3_sunU"], ["id", 8]]
+  [1m[36m (22.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 8], ["body", "Ea aut occaecati minima. Dolores dolorem facilis saepe placeat. Rerum quibusdam corrupti aperiam. Libero assumenda labore et est voluptas veniam."], ["title", "Global Integration Representative"], ["created_at", "2015-08-06 02:36:36.134530"], ["updated_at", "2015-08-06 02:36:36.134530"]]
+  [1m[35m (56.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Iste voluptatum reiciendis quasi tempore tenetur. Officiis qui magni fuga. Magni ducimus tempora. Placeat cupiditate eligendi sed illum beatae quisquam aut."], ["user_id", 8], ["question_id", 8], ["created_at", "2015-08-06 02:36:36.195574"], ["updated_at", "2015-08-06 02:36:36.195574"]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Saepe rerum occaecati. Deserunt voluptate et. Tempora illo aut error vel voluptatum iste iure. Culpa mollitia nihil fugiat harum et repudiandae."], ["title", "Internal Mobility Administrator"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:36.210586"], ["updated_at", "2015-08-06 02:36:36.210586"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'adaline_howell@braun.org' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "adaline_howell@braun.org"], ["username", "ivory"], ["encrypted_password", "$2a$10$AJ8XCVaa/fxkLgDOiQJEoedLBkBwX7J80HTDONwX835HhfWNNO4Cm"], ["created_at", "2015-08-06 02:36:36.294645"], ["updated_at", "2015-08-06 02:36:36.294645"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "9:uKnoqMz1F_gQ6WbCPd6Y"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'adaline_howell@braun.org' AND "users"."id" != 9) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "adaline_howell@braun.org"], ["username", "ivory"], ["encrypted_password", "$2a$10$AJ8XCVaa/fxkLgDOiQJEoedLBkBwX7J80HTDONwX835HhfWNNO4Cm"], ["created_at", "2015-08-06 02:36:36.294645"], ["updated_at", "2015-08-06 02:36:36.294645"], ["id", 9], ["access_token", "9:uKnoqMz1F_gQ6WbCPd6Y"], ["id", 9]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 9], ["body", "Nam omnis natus. Hic molestias nihil. Aut eos enim dolores dolor et soluta."], ["title", "Dynamic Data Engineer"], ["created_at", "2015-08-06 02:36:36.316659"], ["updated_at", "2015-08-06 02:36:36.316659"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Asperiores sequi repudiandae a itaque suscipit. Ipsum quis dicta unde aspernatur. Est sunt optio in. Commodi neque explicabo fugiat at modi excepturi aliquam. Necessitatibus quisquam inventore id voluptates et quia."], ["user_id", 9], ["question_id", 9], ["created_at", "2015-08-06 02:36:36.333678"], ["updated_at", "2015-08-06 02:36:36.333678"]]
+  [1m[36m (19.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "lessons" ("summary", "title", "creator", "link", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["summary", "Non possimus deserunt nihil inventore in. Adipisci velit a eaque est enim. Quia sed quia nisi non. Ut harum sit rerum quis magnam modi."], ["title", "Regional Program Coordinator"], ["creator", "CFC"], ["link", "codeacademy.com"], ["created_at", "2015-08-06 02:36:36.358689"], ["updated_at", "2015-08-06 02:36:36.358689"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'orville.kohler@rogahn.com' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "orville.kohler@rogahn.com"], ["username", "kathlyn.tremblay"], ["encrypted_password", "$2a$10$BN/9cF2FdKjElOB9r8T2HumLKSwSTmIkL.cxiggQW8p6HC70angDu"], ["created_at", "2015-08-06 02:36:36.444750"], ["updated_at", "2015-08-06 02:36:36.444750"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "10:rtww9MzvEPdo3_s9ajvU"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'orville.kohler@rogahn.com' AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "orville.kohler@rogahn.com"], ["username", "kathlyn.tremblay"], ["encrypted_password", "$2a$10$BN/9cF2FdKjElOB9r8T2HumLKSwSTmIkL.cxiggQW8p6HC70angDu"], ["created_at", "2015-08-06 02:36:36.444750"], ["updated_at", "2015-08-06 02:36:36.444750"], ["id", 10], ["access_token", "10:rtww9MzvEPdo3_s9ajvU"], ["id", 10]]
+  [1m[36m (15.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("user_id", "body", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 10], ["body", "Voluptatem ratione accusantium nihil natus velit quos. Fugiat in ipsum veniam. Praesentium facilis aut asperiores fuga nemo quas suscipit. Voluptas autem voluptatibus."], ["title", "Principal Research Architect"], ["created_at", "2015-08-06 02:36:36.469768"], ["updated_at", "2015-08-06 02:36:36.469768"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Aut voluptates ullam reiciendis atque. Asperiores aliquam alias est natus. Corporis hic aut aut non vero. Mollitia nihil et repudiandae doloribus. Odit nisi dolorum repellendus ab nihil."], ["user_id", 10], ["question_id", 10], ["created_at", "2015-08-06 02:36:36.485779"], ["updated_at", "2015-08-06 02:36:36.485779"]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user@user.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("email", "username", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "user@user.com"], ["username", "user"], ["encrypted_password", "$2a$10$J7YoOFxn2vbsWoJ72W2dx.AwfLD0AEuvf9L4AkbgXsF5BT4V6iAj."], ["created_at", "2015-08-06 02:36:36.578845"], ["updated_at", "2015-08-06 02:36:36.578845"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "11:QHHz8yzxn-m8BWJkU7XG"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'user@user.com' AND "users"."id" != 11) LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mUPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?[0m  [["email", "user@user.com"], ["username", "user"], ["encrypted_password", "$2a$10$J7YoOFxn2vbsWoJ72W2dx.AwfLD0AEuvf9L4AkbgXsF5BT4V6iAj."], ["created_at", "2015-08-06 02:36:36.578845"], ["updated_at", "2015-08-06 02:36:36.578845"], ["id", 11], ["access_token", "11:QHHz8yzxn-m8BWJkU7XG"], ["id", 11]]
+  [1m[35m (14.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.com' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "users" ("email", "username", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "admin@admin.com"], ["username", "admin"], ["encrypted_password", "$2a$10$TN/14PHNx3eyJnWEdVMdhe5d3ZA5BPE8c5H0t6HGDI8XY6b0Sig/W"], ["role", "admin"], ["created_at", "2015-08-06 02:36:36.680918"], ["updated_at", "2015-08-06 02:36:36.680918"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "12:p7aevEzNzQzPxqq-wTUA"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'admin@admin.com' AND "users"."id" != 12) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "email" = ?, "username" = ?, "encrypted_password" = ?, "role" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "access_token" = ? WHERE "users"."id" = ?  [["email", "admin@admin.com"], ["username", "admin"], ["encrypted_password", "$2a$10$TN/14PHNx3eyJnWEdVMdhe5d3ZA5BPE8c5H0t6HGDI8XY6b0Sig/W"], ["role", "admin"], ["created_at", "2015-08-06 02:36:36.680918"], ["updated_at", "2015-08-06 02:36:36.680918"], ["id", 12], ["access_token", "12:p7aevEzNzQzPxqq-wTUA"], ["id", 12]]
+  [1m[36m (15.0ms)[0m  [1mcommit transaction[0m
