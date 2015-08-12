@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :questions, defaults: {format: :json}, only: [:index, :show, :create, :edit]
+  resources :lessons, only: [:index, :show, :create, :destroy, :edit]
   devise_for :users, only: []
 
   namespace :v1, defaults: {format: :json} do
     resources :login, only: [:create], controller: :sessions
     resources :users, only: [:create]
-    resources :lessons, only: [:index, :show, :create, :destroy, :edit]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
