@@ -1,5 +1,3 @@
-include ControllerHelpers
-
 require 'spec_helper'
 
 describe LessonsController do

@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   skip_before_action :authenticate_user_from_token!, only: [:index, :show]
 
-  # GET /v1/lessons
+  # GET /lessons
   # Get all the lessons
   def index
     @lessons = Lesson.order(created_at: :desc).all
@@ -13,7 +13,7 @@ class LessonsController < ApplicationController
     render json: @lesson, serializer: LessonSerializer
   end
 
-  # POST /v1/lessons
+  # POST /lessons
   # Add a new lesson
   def create
     @lesson = Lesson.new(lesson_params)
