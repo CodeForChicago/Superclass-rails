@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :comments, defaults: {format: :json}, only: [:create]
   resources :questions, defaults: {format: :json}, only: [:index, :show, :create, :edit]
-  resources :lessons, only: [:index, :show, :create, :destroy, :edit]
+  resources :lessons, defaults: {format: :json}, only: [:index, :show, :create, :destroy, :edit]
   devise_for :users, only: []
 
   namespace :v1, defaults: {format: :json} do
