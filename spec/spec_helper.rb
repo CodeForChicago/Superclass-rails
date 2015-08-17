@@ -31,6 +31,7 @@ module ControllerHelpers
   def test_authorize_session
     test_sign_in
     request.headers['Authorization'] = @user.access_token
+    @user
   end
 
 

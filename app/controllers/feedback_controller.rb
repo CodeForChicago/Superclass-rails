@@ -12,6 +12,6 @@ class FeedbackController < ApplicationController
   end
 
   def email_params
-    params.require(:email).permit(:body)
+    JSON.parse(params.require(:email).permit(:body).to_json) 
   end
 end
