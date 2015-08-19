@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 		comment = Comment.new(comments_params)
 		if comment.save
 			render json: comment, serializer: CommentsSerializer
+			#render json: @comment, status: :created, location: @comment
 		end
 		# else
 		# 	render json: {error: ('comment_create_error')}, status: :unprocessable_entity

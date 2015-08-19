@@ -2,6 +2,17 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true
+
+ActionMailer::Base.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => "587",
+  :domain               => 'gmail.com',
+  :user_name            => 'myaccount@mymail.com',
+  :password             => 'mypassword',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true  }
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -20,7 +31,6 @@ module SuperClassRails
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
 
     config.middleware.insert_before "Rack::Runtime", "Rack::Cors" do
       allow do

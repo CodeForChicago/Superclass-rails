@@ -10361,3 +10361,271 @@ Processing by V1::LessonsController#create as HTML
 Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms)
   [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "lessons"
   [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", ":XszLPFdXuMeZ39VTBb-z"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person1@example.com' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$wUmK0Rf7c/jGhRKOZRUHS.7SIMm6zUzc6ZNRvwb1/C9WogKz/lBjW"], ["email", "person1@example.com"], ["access_token", ":XszLPFdXuMeZ39VTBb-z"], ["created_at", "2015-08-17 02:29:48.193230"], ["updated_at", "2015-08-17 02:29:48.193230"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "1:EWzUK3kdRwmQ3BHXrzj3"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person1@example.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$wUmK0Rf7c/jGhRKOZRUHS.7SIMm6zUzc6ZNRvwb1/C9WogKz/lBjW"], ["email", "person1@example.com"], ["access_token", "1:EWzUK3kdRwmQ3BHXrzj3"], ["created_at", "2015-08-17 02:29:48.193230"], ["updated_at", "2015-08-17 02:29:48.193230"], ["id", 1], ["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", ":FfPsgsQMhxo6eFmsszuy"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person2@example.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$PDWYc4RkhXhX6TBxD3W3E.FOrtqFKNdMatuNST5VrETta5htWqrBm"], ["email", "person2@example.com"], ["access_token", ":FfPsgsQMhxo6eFmsszuy"], ["created_at", "2015-08-17 02:29:48.290255"], ["updated_at", "2015-08-17 02:29:48.290255"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "2:fbUUstdVxyR8yhnV3Sxy"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person2@example.com' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$PDWYc4RkhXhX6TBxD3W3E.FOrtqFKNdMatuNST5VrETta5htWqrBm"], ["email", "person2@example.com"], ["access_token", "2:fbUUstdVxyR8yhnV3Sxy"], ["created_at", "2015-08-17 02:29:48.290255"], ["updated_at", "2015-08-17 02:29:48.290255"], ["id", 2], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "questions" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Legacy Accounts Orchestrator"], ["body", "Ut quia hic ex id laboriosam corrupti mollitia. Rerum iste voluptas odit est. Repellendus molestiae non itaque delectus et tenetur."], ["user_id", 2], ["created_at", "2015-08-17 02:29:48.303264"], ["updated_at", "2015-08-17 02:29:48.303264"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":pyahZeNPfioRzVekWz2z"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person3@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$cFJtOmmrXC6h9sIgkK6FquDykdBELHl3MDD/Y.rsAOKXLSbP6R0ja"], ["email", "person3@example.com"], ["access_token", ":pyahZeNPfioRzVekWz2z"], ["created_at", "2015-08-17 02:29:48.308267"], ["updated_at", "2015-08-17 02:29:48.308267"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "3:fasGExQ2xtxRAoYj-wP6"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person3@example.com' AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$cFJtOmmrXC6h9sIgkK6FquDykdBELHl3MDD/Y.rsAOKXLSbP6R0ja"], ["email", "person3@example.com"], ["access_token", "3:fasGExQ2xtxRAoYj-wP6"], ["created_at", "2015-08-17 02:29:48.308267"], ["updated_at", "2015-08-17 02:29:48.308267"], ["id", 3], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"[0m
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"body"=>"Hello, I am a comment", "question"=>"1"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "comments" ("user_id", "question_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["question_id", 1], ["body", "Hello, I am a comment"], ["created_at", "2015-08-17 02:29:48.344321"], ["updated_at", "2015-08-17 02:29:48.344321"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 13ms
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by LessonsController#index as HTML
+  [1m[35mLesson Load (0.0ms)[0m  SELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "lessons" ("creator", "title", "link", "summary", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["creator", "Runolfsson, Mayer and Waters"], ["title", "District Accountability Developer"], ["link", "http://carter.com/westley"], ["summary", "Vero est rerum et dolorum. Quia consequatur quos est voluptate et. Delectus consectetur incidunt sed dolorem quis."], ["created_at", "2015-08-17 02:29:48.369338"], ["updated_at", "2015-08-17 02:29:48.369338"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("creator", "title", "link", "summary", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["creator", "Runolfsson, Mayer and Waters"], ["title", "District Accountability Developer"], ["link", "http://carter.com/westley"], ["summary", "Vero est rerum et dolorum. Quia consequatur quos est voluptate et. Delectus consectetur incidunt sed dolorem quis."], ["created_at", "2015-08-17 02:29:48.372340"], ["updated_at", "2015-08-17 02:29:48.372340"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LessonsController#index as HTML
+  [1m[36mLesson Load (0.0ms)[0m  [1mSELECT "lessons".* FROM "lessons"  ORDER BY "lessons"."created_at" DESC[0m
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "lessons" ("creator", "title", "link", "summary", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["creator", "Runolfsson, Mayer and Waters"], ["title", "District Accountability Developer"], ["link", "http://carter.com/westley"], ["summary", "Vero est rerum et dolorum. Quia consequatur quos est voluptate et. Delectus consectetur incidunt sed dolorem quis."], ["created_at", "2015-08-17 02:29:48.380346"], ["updated_at", "2015-08-17 02:29:48.380346"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LessonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLesson Load (0.0ms)[0m  [1mSELECT  "lessons".* FROM "lessons" WHERE "lessons"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", ":sMQbF9YZJj_LboWdX9ot"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person4@example.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$SlufGb8yMUI94Q7E.OgCA.dGjV7rOhrPWRqB5eIrkE24AQKPIVkqW"], ["email", "person4@example.com"], ["access_token", ":sMQbF9YZJj_LboWdX9ot"], ["created_at", "2015-08-17 02:29:48.401596"], ["updated_at", "2015-08-17 02:29:48.401596"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "1:7HBfe2f7TkT1eyLF7Tzg"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person4@example.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$SlufGb8yMUI94Q7E.OgCA.dGjV7rOhrPWRqB5eIrkE24AQKPIVkqW"], ["email", "person4@example.com"], ["access_token", "1:7HBfe2f7TkT1eyLF7Tzg"], ["created_at", "2015-08-17 02:29:48.401596"], ["updated_at", "2015-08-17 02:29:48.401596"], ["id", 1], ["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "lessons"
+Processing by LessonsController#create as HTML
+  Parameters: {"lesson"=>{"title"=>"Code For Chicago Lessons", "link"=>"https://www.codingforchicago.com/lessons", "creator"=>"Master D", "summary"=>"I am a paragraph long."}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "lessons" ("title", "summary", "link", "creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Code For Chicago Lessons"], ["summary", "I am a paragraph long."], ["link", "https://www.codingforchicago.com/lessons"], ["creator", "Master D"], ["created_at", "2015-08-17 02:29:48.411901"], ["updated_at", "2015-08-17 02:29:48.411901"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "lessons"
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."created_at" DESC[0m
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", ":sxumFNq-Kz9eiHeQ8aR6"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person5@example.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$VH6Yb.qf99TJtY0pMtA/FOBu6UN1W6Rba8YBbmpvJ/3FialCTz2oC"], ["email", "person5@example.com"], ["access_token", ":sxumFNq-Kz9eiHeQ8aR6"], ["created_at", "2015-08-17 02:29:48.426914"], ["updated_at", "2015-08-17 02:29:48.426914"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "1:wuy4Ldnue98jD6JMTKrd"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person5@example.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$VH6Yb.qf99TJtY0pMtA/FOBu6UN1W6Rba8YBbmpvJ/3FialCTz2oC"], ["email", "person5@example.com"], ["access_token", "1:wuy4Ldnue98jD6JMTKrd"], ["created_at", "2015-08-17 02:29:48.426914"], ["updated_at", "2015-08-17 02:29:48.426914"], ["id", 1], ["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "questions" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Legacy Accounts Orchestrator"], ["body", "Ut quia hic ex id laboriosam corrupti mollitia. Rerum iste voluptas odit est. Repellendus molestiae non itaque delectus et tenetur."], ["user_id", 1], ["created_at", "2015-08-17 02:29:48.433919"], ["updated_at", "2015-08-17 02:29:48.433919"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":yeHHtNpX42JUo9zXFU1a"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person6@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$OUUWIacMqP/avG.oeCAjAOPiwZvK5lW/RVJ5hUkU4OpxOTDPq0b06"], ["email", "person6@example.com"], ["access_token", ":yeHHtNpX42JUo9zXFU1a"], ["created_at", "2015-08-17 02:29:48.437922"], ["updated_at", "2015-08-17 02:29:48.437922"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "2:3BUien_bcDMyrB8LNxfq"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person6@example.com' AND "users"."id" != 2) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$OUUWIacMqP/avG.oeCAjAOPiwZvK5lW/RVJ5hUkU4OpxOTDPq0b06"], ["email", "person6@example.com"], ["access_token", "2:3BUien_bcDMyrB8LNxfq"], ["created_at", "2015-08-17 02:29:48.437922"], ["updated_at", "2015-08-17 02:29:48.437922"], ["id", 2], ["id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "questions" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Legacy Accounts Orchestrator"], ["body", "Ut quia hic ex id laboriosam corrupti mollitia. Rerum iste voluptas odit est. Repellendus molestiae non itaque delectus et tenetur."], ["user_id", 2], ["created_at", "2015-08-17 02:29:48.442925"], ["updated_at", "2015-08-17 02:29:48.442925"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."created_at" DESC
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":bmQ6yc9zVnnuJa9kWcQc"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person7@example.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$5.NF4JW7tbfrrJ934ZdGCOITZ.kHCD0vVBZot3/9KXmWcGM9.zKli"], ["email", "person7@example.com"], ["access_token", ":bmQ6yc9zVnnuJa9kWcQc"], ["created_at", "2015-08-17 02:29:48.459937"], ["updated_at", "2015-08-17 02:29:48.459937"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "1:UigRerG8ojgznwpEnyz1"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person7@example.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$5.NF4JW7tbfrrJ934ZdGCOITZ.kHCD0vVBZot3/9KXmWcGM9.zKli"], ["email", "person7@example.com"], ["access_token", "1:UigRerG8ojgznwpEnyz1"], ["created_at", "2015-08-17 02:29:48.459937"], ["updated_at", "2015-08-17 02:29:48.459937"], ["id", 1], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "questions" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Legacy Accounts Orchestrator"], ["body", "Ut quia hic ex id laboriosam corrupti mollitia. Rerum iste voluptas odit est. Repellendus molestiae non itaque delectus et tenetur."], ["user_id", 1], ["created_at", "2015-08-17 02:29:48.466942"], ["updated_at", "2015-08-17 02:29:48.466942"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."question_id" = ?  [["question_id", 1]]
+Completed 200 OK in 13ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":UX8hNShbvZ9Ens3cUPJv"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person8@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$GuXztiD3Eg4hejoSW4QPseAoHN0I5vyBlkqFV..S3U.ZxG7EjtnYS"], ["email", "person8@example.com"], ["access_token", ":UX8hNShbvZ9Ens3cUPJv"], ["created_at", "2015-08-17 02:29:48.488958"], ["updated_at", "2015-08-17 02:29:48.488958"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "1:yb7UoAt8JAJphdddKrfM"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person8@example.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$GuXztiD3Eg4hejoSW4QPseAoHN0I5vyBlkqFV..S3U.ZxG7EjtnYS"], ["email", "person8@example.com"], ["access_token", "1:yb7UoAt8JAJphdddKrfM"], ["created_at", "2015-08-17 02:29:48.488958"], ["updated_at", "2015-08-17 02:29:48.488958"], ["id", 1], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "questions" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Legacy Accounts Orchestrator"], ["body", "Ut quia hic ex id laboriosam corrupti mollitia. Rerum iste voluptas odit est. Repellendus molestiae non itaque delectus et tenetur."], ["user_id", 1], ["created_at", "2015-08-17 02:29:48.495206"], ["updated_at", "2015-08-17 02:29:48.495206"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", ":T6r6E593LPzYpAqXNXZz"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person9@example.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$tc4kYh9gsVNsrDBa.rh2DuhPUPoeRXepE7sM0ftMukBcXmf3SG5Iq"], ["email", "person9@example.com"], ["access_token", ":T6r6E593LPzYpAqXNXZz"], ["created_at", "2015-08-17 02:29:48.500225"], ["updated_at", "2015-08-17 02:29:48.500225"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "2:qWdp-Jjmi7D-4afVwiQC"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person9@example.com' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$tc4kYh9gsVNsrDBa.rh2DuhPUPoeRXepE7sM0ftMukBcXmf3SG5Iq"], ["email", "person9@example.com"], ["access_token", "2:qWdp-Jjmi7D-4afVwiQC"], ["created_at", "2015-08-17 02:29:48.500225"], ["updated_at", "2015-08-17 02:29:48.500225"], ["id", 2], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "Et praesentium consequuntur tempora magnam adipisci iure. Nihil ad culpa voluptate est libero. Illo dignissimos illum."], ["user_id", 2], ["question_id", 1], ["created_at", "2015-08-17 02:29:48.505228"], ["updated_at", "2015-08-17 02:29:48.505228"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":3emoBAWV-WDP5VCztQnM"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person10@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$p5dtDvosx0rJni2I7kM5D.I8aDlQcOmqWt0gqY2IGo1Kg/F1d6kzq"], ["email", "person10@example.com"], ["access_token", ":3emoBAWV-WDP5VCztQnM"], ["created_at", "2015-08-17 02:29:48.510214"], ["updated_at", "2015-08-17 02:29:48.510214"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "3:RxtfT5KHGw_nm9q_5ba1"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person10@example.com' AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$p5dtDvosx0rJni2I7kM5D.I8aDlQcOmqWt0gqY2IGo1Kg/F1d6kzq"], ["email", "person10@example.com"], ["access_token", "3:RxtfT5KHGw_nm9q_5ba1"], ["created_at", "2015-08-17 02:29:48.510214"], ["updated_at", "2015-08-17 02:29:48.510214"], ["id", 3], ["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "Et praesentium consequuntur tempora magnam adipisci iure. Nihil ad culpa voluptate est libero. Illo dignissimos illum."], ["user_id", 3], ["question_id", 1], ["created_at", "2015-08-17 02:29:48.515235"], ["updated_at", "2015-08-17 02:29:48.515235"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."question_id" = ?  [["question_id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":WkMeHWzTs14izLsDQhzJ"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person11@example.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$1Afh37umMQ7RoCMI9QmGdeS6fkBZoeSwlgUdonULSZsePMg8tV.9K"], ["email", "person11@example.com"], ["access_token", ":WkMeHWzTs14izLsDQhzJ"], ["created_at", "2015-08-17 02:29:48.529246"], ["updated_at", "2015-08-17 02:29:48.529246"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "1:pJ8yDvHkAHy8-VbJ5akT"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person11@example.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$1Afh37umMQ7RoCMI9QmGdeS6fkBZoeSwlgUdonULSZsePMg8tV.9K"], ["email", "person11@example.com"], ["access_token", "1:pJ8yDvHkAHy8-VbJ5akT"], ["created_at", "2015-08-17 02:29:48.529246"], ["updated_at", "2015-08-17 02:29:48.529246"], ["id", 1], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Legacy Accounts Orchestrator"], ["body", "Ut quia hic ex id laboriosam corrupti mollitia. Rerum iste voluptas odit est. Repellendus molestiae non itaque delectus et tenetur."], ["user_id", 1], ["created_at", "2015-08-17 02:29:48.536250"], ["updated_at", "2015-08-17 02:29:48.536250"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", ":dkBTF5HsA4cPqrCCysn-"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person12@example.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$uf.ZFz1XBJgE.CJx1vun4.hk2LpRz9qplJGzhYoj8vgPoxypTAGFi"], ["email", "person12@example.com"], ["access_token", ":dkBTF5HsA4cPqrCCysn-"], ["created_at", "2015-08-17 02:29:48.541250"], ["updated_at", "2015-08-17 02:29:48.541250"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["access_token", "2:Q7xzuN17mVy1fW9sxWWC"]]
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person12@example.com' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$uf.ZFz1XBJgE.CJx1vun4.hk2LpRz9qplJGzhYoj8vgPoxypTAGFi"], ["email", "person12@example.com"], ["access_token", "2:Q7xzuN17mVy1fW9sxWWC"], ["created_at", "2015-08-17 02:29:48.541250"], ["updated_at", "2015-08-17 02:29:48.541250"], ["id", 2], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "comments" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "Et praesentium consequuntur tempora magnam adipisci iure. Nihil ad culpa voluptate est libero. Illo dignissimos illum."], ["user_id", 2], ["question_id", 1], ["created_at", "2015-08-17 02:29:48.546258"], ["updated_at", "2015-08-17 02:29:48.546258"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."question_id" = ?[0m  [["question_id", 1]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":uYtmbjbmx32QG_Yc76xS"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person13@example.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$LsfBlMJBRIfkMqN9VA7wtOYK6UtHL.R5MiYteNhFqet8ntB8kdVl2"], ["email", "person13@example.com"], ["access_token", ":uYtmbjbmx32QG_Yc76xS"], ["created_at", "2015-08-17 02:29:48.557265"], ["updated_at", "2015-08-17 02:29:48.557265"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "1:9RFywdxvcnRSeVy-KiQo"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person13@example.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$LsfBlMJBRIfkMqN9VA7wtOYK6UtHL.R5MiYteNhFqet8ntB8kdVl2"], ["email", "person13@example.com"], ["access_token", "1:9RFywdxvcnRSeVy-KiQo"], ["created_at", "2015-08-17 02:29:48.557265"], ["updated_at", "2015-08-17 02:29:48.557265"], ["id", 1], ["id", 1]]
+  [1m[35m (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", ":ArqZ5YXyzLdHLAFmbED5"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person14@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("username", "encrypted_password", "email", "access_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$yawyo16MyvaFXq5/MWg7YudIF/d1CU08ik38UGl.Wv4LsKleiEE8u"], ["email", "person14@example.com"], ["access_token", ":ArqZ5YXyzLdHLAFmbED5"], ["created_at", "2015-08-17 02:29:48.567273"], ["updated_at", "2015-08-17 02:29:48.567273"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."access_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["access_token", "2:xyoSmyp3fXjpBxPK8wyJ"]]
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'person14@example.com' AND "users"."id" != 2) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "users" SET "username" = ?, "encrypted_password" = ?, "email" = ?, "access_token" = ?, "created_at" = ?, "updated_at" = ?, "id" = ? WHERE "users"."id" = ?[0m  [["username", "lavon.abernathy"], ["encrypted_password", "$2a$04$yawyo16MyvaFXq5/MWg7YudIF/d1CU08ik38UGl.Wv4LsKleiEE8u"], ["email", "person14@example.com"], ["access_token", "2:xyoSmyp3fXjpBxPK8wyJ"], ["created_at", "2015-08-17 02:29:48.567273"], ["updated_at", "2015-08-17 02:29:48.567273"], ["id", 2], ["id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+Processing by QuestionsController#create as HTML
+  Parameters: {"question"=>{"title"=>"Questions", "body"=>"Here lies a question. May someone someday answer it."}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "questions" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Questions"], ["body", "Here lies a question. May someone someday answer it."], ["user_id", 1], ["created_at", "2015-08-17 02:29:48.575274"], ["updated_at", "2015-08-17 02:29:48.575274"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."question_id" = ?[0m  [["question_id", 1]]
+Completed 201 Created in 5ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "questions"
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
