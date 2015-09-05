@@ -3,8 +3,6 @@
 #
 # # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '4.2.3'
-# # Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
 # # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'
 # # Use CoffeeScript for .coffee assets and views
@@ -33,8 +31,6 @@
 # #Use Devise for authentication; it includes bcrypt
 # gem 'devise', '~> 3.4.1'
 #
-#
-#
 # group :development, :test do
 #   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 #   gem 'byebug'
@@ -55,7 +51,6 @@ gem 'rails', '4.2.0'
 gem 'rails-api', '~> 0.4.0'
 gem 'active_model_serializers', '~> 0.8.3' # NOTE: not the 0.9
 gem 'devise', '~> 3.4.1'
-#gem 'sqlite3'
 gem 'pg'
 gem 'rack-cors',            require: 'rack/cors'
 gem 'sdoc', '~> 0.4.0', group: :doc
