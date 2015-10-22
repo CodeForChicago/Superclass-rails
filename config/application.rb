@@ -45,6 +45,6 @@ module SuperClassRails
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.admin_email = "michaelhorst2016@u.northwestern.edu"
+    config.admin_email = "CodeforChicago@u.northwestern.edu"
   end
 end
