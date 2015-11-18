@@ -6,18 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+if Rails.env.test?
+	require 'faker'
 
-require 'faker'
+	10.times do
+	  Lesson.create(summary: Faker::Lorem.paragraph, title: Faker::Name.title, creator: "CFC", link: "codeacademy.com")
+	  u = User.create(email: Faker::Internet.email, username: Faker::Internet.user_name, password: 'password')
+	  q = Question.create(user: u, body: Faker::Lorem.paragraph, title: Faker::Name.title)
 
-10.times do
-  Lesson.create(summary: Faker::Lorem.paragraph, title: Faker::Name.title, creator: "CFC", link: "codeacademy.com")
-  u = User.create(email: Faker::Internet.email, username: Faker::Internet.user_name, password: 'password')
-  q = Question.create(user: u, body: Faker::Lorem.paragraph, title: Faker::Name.title)
-
-  Comment.create(body: Faker::Lorem.paragraph, user: u, question: q )
+	  Comment.create(body: Faker::Lorem.paragraph, user: u, question: q )
+	end
+	User.create(email: "user@user.com", username: 'user', password: 'password')
+	User.create(email: "codeforchicago@u.northwestern.edu", username: 'CFC', password: 'password', role: 'admin')
+else
+	User.create(email: "codeforchicago@u.northwestern.edu", username: 'CFC', password: ENV['ADMIN_PW'], role: 'admin')
 end
-User.create(email: "user@user.com", username: 'user', password: 'password')
-User.create(email: "admin@admin.com", username: 'admin', password: 'password', role: 'admin')
-
-
 
