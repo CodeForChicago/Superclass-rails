@@ -55,11 +55,21 @@ gem 'rails', '4.2.0'
 gem 'rails-api', '~> 0.4.0'
 gem 'active_model_serializers', '~> 0.8.3' # NOTE: not the 0.9
 gem 'devise', '~> 3.4.1'
-gem 'sqlite3'
+gem 'pg'
+gem 'rails_12factor', group: :production
 gem 'rack-cors',            require: 'rack/cors'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'thin'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0',          group: :doc
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
+
+gem 'puma'
 group :test, :development do
   gem 'pry'
   gem 'faker'
