@@ -5,7 +5,15 @@ class FeedbackController < ApplicationController
   def create
     @email = email_params
     @user = current_user
-    if FeedbackMailer.feedback_mail(@user, @email).deliver_now
+    binding.pry
+    if @user.nil?
+      @username = @email["username"]
+      @useremail = @email["useremail"]
+    else
+      @username = @user.username
+      @useremail = @user.username
+    end
+    if FeedbackMailer.feedback_mail(@username, @useremail, @email).deliver_now
       render json: @email
     else
       render json: { error: t('email_send_error') }, status: :unprocessable_entity
@@ -13,6 +21,7 @@ class FeedbackController < ApplicationController
   end
 
   def email_params
-    JSON.parse(params.require(:email).permit(:body).to_json) 
+    JSON.parse(params.require(:email).permit(:body, 
+      :username, :useremail).to_json) 
   end
 end
