@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FeedbackMailer do
+xdescribe FeedbackMailer do
   describe '#feedback_mail' do
     let(:user) { create(:user) }
     let(:email) { {body: "I am a body"}.to_json }
