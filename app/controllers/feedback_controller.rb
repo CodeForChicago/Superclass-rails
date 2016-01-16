@@ -5,7 +5,6 @@ class FeedbackController < ApplicationController
   def create
     @email = email_params
     @user = current_user
-    binding.pry
     if @user.nil?
       @username = @email["username"]
       @useremail = @email["useremail"]
