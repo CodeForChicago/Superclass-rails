@@ -1,0 +1,79 @@
+This guide was writting for setting up the Rails backend for the Code for Chicago web application on Ubuntu 14.04.
+
+Created on 1/20/2016 by Michael Horst
+Last updated 1/20/2016 by Michael Horst
+
+~~~ SETTING UP GIT ~~~
+
+Begin by updating your system and installing git:
+
+$ sudo apt-get update
+$ sudo apt-get install git
+
+Next create a suitably name directory and enter it. For instance:
+
+$ mkdir SuperClass-rails
+$ cd SuperClass-rails
+
+Initialize a git repository
+ 
+$ git init
+
+Add the SuperClass rails remote repository. Go to github.com/CodeForChicago/Superclass-Rails and copy the remote url to your clipboard, and then in your terminal run the following command:
+
+$ git remote add origin [URL]
+
+Where [URL] is replaced with the one copied from the repo. Confirm the remote address is correct by running
+
+$ git remote -v
+
+Finally, pull the repo from the remote origin with the command
+
+$ git pull origin master
+
+~~~ INSTALLING RUBY ~~~
+
+In order to ensure we run the newest stable version of ruby, we are going to install RVM (ruby version manager). The easiest way is to run the following two commands:
+
+$ sudo apt-get install curl
+$ \curl -L https://get.rvm.io | bash -s stable --ruby
+
+This should install rvm and the newest stable version of ruby. Now double check that you're using the most updated version of ruby, with by running two commands and comparing their output:
+
+$ ruby -v
+$ rvm list
+
+If the result of ruby -v is the same as the newest version of ruby listed with rvm list, then you're good to go. If not, run the following command
+
+rvm use [version]
+
+Where version number is the newest version of ruby listed under rvm list. For instance, I ran 'rvm use 2.2.1'. If you find yourself getting an error that says "RVM is not a function, selecting rubies with 'rvm use ...' will not work", then do the following steps to allow fit it:
+
+1) In the terminal, select Edit -> Profile Preferences
+2) Select the tab "Title and Command"
+3) Check the box "Run command as a login shell"
+4) Close out and restart your terminal
+
+After completing these steps, run 'rvm use [version]'.
+
+INSTALLING DEPENDENCIES
+
+Next install node and PostgreSQL:
+
+$ sudo apt-get install nodejs
+$ sudo apt-get install postgresql-server-dev-9.3
+
+There is a chance there might be a newer version of postgresql-server-dev, but at the time of writing this 9.3 was the one to use for Ubuntu 14.04
+
+INSTALLING RAILS
+
+Now we need to install and update rails and the bundler. These are the final steps in setting up the API. Run the following commands:
+
+$ sudo apt-get install rails
+$ sudo gem update rails
+$ sudo gem update bundler
+$ bundle install
+
+With luck, all of these commands should execute properly. Congratulations! You have successfully set up the Web API for Code for Chicago.
+
+If some of the gems throw errors, you'll have to dive into the error messages and figure out what wrong. There's no way for me to predict what might be different on your system. Google is your best friend. Sorry :/
